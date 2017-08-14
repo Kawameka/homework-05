@@ -1,3 +1,3 @@
-module Person
+module Homework05
   VERSION = "0.1.0"
 end

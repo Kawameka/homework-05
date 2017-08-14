@@ -1,34 +1,55 @@
-require 'person/version'
+require 'homework05/version'
 
-module Person
-  class Person
-    attr_accessor :first_name
+class Person
+  attr_accessor :name
 
-    def initialize(first_name)
-      @first_name = first_name
-    end
-
-    def to_s
-      first_name
-    end
-
-    def titlelize
-      self.first_name = first_name.capitalize
-    end
-
-    def upcase
-      self.first_name = first_name.upcase
-    end
-
-    def downcase
-    end
-
-    def hyphenize
-      self.first_name = first_name.split('').join('-')
-    end
-
-    def reverse
-      self.first_name = first_name.reverse
-    end
+  def initialize(name)
+    @name = name
+    self
   end
+
+  def to_s
+    @first_name = @name.to_str
+    self
+  end
+
+  def titlelize
+    @first_name = @name.capitalize
+    self
+  end
+
+  def upcase
+    @first_name = @name.upcase
+    self
+  end
+  
+  def downcase
+    @first_name = @name.downcase
+    self
+  end
+  
+  def reverse
+    @first_name = @name.reverse
+    self
+  end
+  
+  def hyphenize
+    @first_name = @name.gsub('', '-')
+    self
+  end
+  
+  def display
+    @first_name
+  end
+  
+  def undo
+  end
+
 end
+
+# person = Person.new('giovanni')
+# puts person.to_s.titlelize.display
+# puts person.upcase.display
+# puts person.downcase.display
+# puts person.reverse.display
+# puts person.hyphenize.display

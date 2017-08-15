@@ -1,45 +1,54 @@
 require 'homework05/version'
 
 class Person
-  attr_accessor :name
+  attr_accessor :name, :transformations
 
   def initialize(name)
     @name = name
+    @transformations = Array.new
     self
   end
 
   def to_s
-    @first_name = @name.to_str
-    self
+    if @transformations.empty?
+      first_name = @name.to_s
+      @transformations << first_name
+      first_name
+    else
+      first_name = @transformations.last.to_s
+      @transformations << first_name
+      first_name
+    end
   end
 
   def titlelize
-    @first_name = @name.capitalize
-    self
+    first_name = @name.capitalize
+    @transformations << first_name
+    first_name
   end
 
   def upcase
-    @first_name = @name.upcase
-    self
+    first_name = @name.upcase
+    @transformations << first_name
+    first_name
   end
   
   def downcase
-    @first_name = @name.downcase
-    self
+    first_name = @name.downcase
+    @transformations << first_name
+    first_name
   end
   
   def reverse
-    @first_name = @name.reverse
-    self
+    first_name = @name.reverse
+    @transformations << first_name
+    first_name
   end
   
   def hyphenize
-    @first_name = @name.gsub('', '-')
-    self
-  end
-  
-  def display
-    @first_name
+    first_name = @name.gsub('', '-')
+    @transformations << first_name
+    first_name
   end
   
   def undo
@@ -48,8 +57,6 @@ class Person
 end
 
 # person = Person.new('giovanni')
-# puts person.to_s.titlelize.display
-# puts person.upcase.display
-# puts person.downcase.display
-# puts person.reverse.display
-# puts person.hyphenize.display
+# puts person.to_s
+# puts person.titlelize
+# puts person.transformations

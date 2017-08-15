@@ -46,12 +46,13 @@ class Person
   end
   
   def hyphenize
-    first_name = @name.gsub('', '-')
+    first_name = @name.gsub(/(?<=\w)(?=\w)/, "-")
     @transformations << first_name
     first_name
   end
   
   def undo
+    @transformations.pop
   end
 
 end

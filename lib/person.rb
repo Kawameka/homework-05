@@ -24,35 +24,37 @@ class Person
   def titlelize
     first_name = @name.capitalize
     @transformations << first_name
-    first_name
+    self
   end
 
   def upcase
     first_name = @name.upcase
     @transformations << first_name
-    first_name
+    self
   end
   
   def downcase
     first_name = @name.downcase
     @transformations << first_name
-    first_name
+    self
   end
   
   def reverse
     first_name = @name.reverse
     @transformations << first_name
-    first_name
+    self
   end
   
   def hyphenize
     first_name = @name.gsub(/(?<=\w)(?=\w)/, "-")
     @transformations << first_name
-    first_name
+    self
   end
   
   def undo
     @transformations.pop
+    first_name = @transformations.last
+    self
   end
 
 end
